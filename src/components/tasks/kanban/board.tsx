@@ -38,23 +38,20 @@ type Props = {
   onDragEnd: (event: DragEndEvent) => void;
 };
 
-export const KanbanBoard = ({
-  children,
-  onDragEnd,
-}: React.PropsWithChildren<Props>) => {
+export const KanbanBoard = ({ children, onDragEnd }: React.PropsWithChildren<Props>) => {
   const mouseSensor = useSensor(MouseSensor, {
     activationConstraint: {
       distance: 5,
     },
-  })
+  });
 
   const touchSensor = useSensor(TouchSensor, {
     activationConstraint: {
       distance: 5,
-    }
-  })
+    },
+  });
 
-  const sensors = useSensors(mouseSensor, touchSensor)
+  const sensors = useSensors(mouseSensor, touchSensor);
 
   return (
     <DndContext onDragEnd={onDragEnd} sensors={sensors}>
