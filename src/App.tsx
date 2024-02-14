@@ -52,14 +52,14 @@ function App() {
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route
                   element={
-                  <Authenticated
-                    key="authenticated-layout"
-                    fallback={<CatchAllNavigate to="/login" />}
-                  >
-                    <Layout>
-                      <Outlet />
-                    </Layout>
-                  </Authenticated>
+                    <Authenticated
+                      key="authenticated-layout"
+                      fallback={<CatchAllNavigate to="/login" />}
+                    >
+                      <Layout>
+                        <Outlet />
+                      </Layout>
+                    </Authenticated>
                   }>
                     <Route index element={<Home />} />
                     <Route path="/companies">
@@ -73,9 +73,9 @@ function App() {
                       </List>
                     }>
                       <Route path="new" element={<CreateTask />} />
-                      <Route path="edit/:id" element={<EditTask />} />
+                      <Route path="edit/:id" element={<EditTask />}></Route>
                     </Route>
-                </Route>
+                  </Route>
               </Routes>
               <RefineKbar />
               <UnsavedChangesNotifier />
